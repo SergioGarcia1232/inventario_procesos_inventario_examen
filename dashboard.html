@@ -1,34 +1,59 @@
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Sistema de inventarios</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">ProcesosUFPSO</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="dashboard.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="Usuarios.html">Users</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="Vehiculo.html" >Vehicle</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="salir()">Logout</a>
-                  </li>
-                </ul>
-              </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>Sistema de inventarios</title>
+</head>
+<body>
+    <!-- primera pantalla -->
+    <section class="intro">
+        <div class="contenido">
+            <span class="txt texto1">Se esta preparando</span>
+            <span class="txt texto2">Listo! A disfrutar!</span>
+            <div class="barra">
+                <div class="progreso"></div>
             </div>
-          </nav>
-    </body>
+        </div>
+    </section>
+    <!-- segunda pantalla -->
+    <section class="info">
+        <header>
+            <a href="dashboard.html"><i class="fa-solid fa-house-user"></i></a>
+            <a href="Usuarios.html">USUARIOS</a>
+            <a href="Vehiculo.html" >VEHICULOS</a>
+            <a href="#"onclick="salir()">CERRAR SESSIÓN</a>
+        </header>
+        
+        <div class="texto">
+            <h3>Sistema de inventario</h3>
+            <h1>AutoStock</h1>
+            
+            <p>Controla tu inventario de manera eficiente, rastrea vehículos, gestiona precios y genera informes en AutoStock.</p>
+        </div>
+
+
+        <div class="items">
+            <div class="opcion item1">
+               <img src="img/f1.png" alt="">
+               <div class="base"></div>
+            </div>
+            <div class="opcion item2">
+                <div class="base"></div>
+                <img src="img/f2.png" alt="">
+            </div>
+            <div class="opcion item3">
+                <img src="img/f3.png" alt="">
+                <div class="base"></div>
+             </div>
+        </div>
+
+        <div class="mitad-dorado"></div>
+        <img src="img/fp.png" alt="" class="foto-principal">
+    </section>
+    <script src="js/local.js"></script>
+</body>
 </html>

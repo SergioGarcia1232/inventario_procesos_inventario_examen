@@ -1,5 +1,5 @@
 //funciones propias de la app
-const urlApi = "http://localhost:8082";//colocar la url con el puerto
+const urlApi = "http://localhost:8088";//colocar la url con el puerto
 
 async function login(){
     var myForm = document.getElementById("myForm");
@@ -46,6 +46,7 @@ function listar(){
             for(const usuario of users.data){
                 console.log(usuario.email)
                 usuarios += `
+                <table id="listar">
                 <tr>
                     <th scope="row">${usuario.id}</th>
                     <td>${usuario.firstName}</td>
@@ -63,30 +64,48 @@ function listar(){
                         <i class="fa-solid fa-eye"></i>
                     </a>
                     </td>
-                </tr>`;
+                </tr>
+                </table>`;
                 
             }
             document.getElementById("listar").innerHTML = usuarios;
     })
 }
 
-function eliminaUsuario(id){
+
+function eliminaUsuario(id) {
     validaToken();
-    var settings={
-        method: 'DELETE',
-        headers:{
+  
+    // Muestra la confirmación con SweetAlert
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta acción eliminará el usuario de forma permanente.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        var settings = {
+          method: 'DELETE',
+          headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
             'Authorization': localStorage.token
-        },
-    }
-    fetch(urlApi+"/api/users/"+id,settings)
-    .then(response => response.json())
-    .then(function(data){
-        listar();
-        alertas("Se ha eliminado el usuario exitosamente!",2)
-    })
-}
+          },
+        };
+  
+        fetch(urlApi + "/user/" + id, settings,{ mode: 'no-cors' })
+          .then(response => response.json())
+          .then(function (data) {
+            listar();
+            alertas("Se ha eliminado el usuario exitosamente!", 2);
+          });
+      }
+    });
+  }
 
 function verModificarUsuario(id){
     validaToken();
@@ -187,6 +206,7 @@ function verUsuario(id){
             myModal.toggle();
     })
 }
+
 
 function alertas(mensaje,tipo){
     var color ="";
